@@ -6,7 +6,7 @@ import api from './api'
 import socket from './socket'
 import db from './db'
 
-import configTemplate from 'raw!./botpress-platform-webchat.config.yml'
+import configTemplate from 'raw-loader!./botpress-platform-webchat.config.yml'
 
 const createConfigFile = bp => {
   const name = 'botpress-platform-webchat.config.yml'
