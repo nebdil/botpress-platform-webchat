@@ -4,9 +4,9 @@ import multer from 'multer'
 import multers3 from 'multer-s3'
 import aws from 'aws-sdk'
 
-import injectScript from 'raw!./inject.js'
-import injectStyle from 'raw!./inject.css'
-import notificationSound from 'raw!../static/notification.mp3'
+import injectScript from 'raw-loader!./inject.js'
+import injectStyle from 'raw-loader!./inject.css'
+import notificationSound from 'raw-loader!../static/notification.mp3'
 
 import serveStatic from 'serve-static'
 
