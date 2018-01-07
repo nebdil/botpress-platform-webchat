@@ -478,7 +478,9 @@ export default class Web extends React.Component {
       onQuickReplySend={::this.handleSendQuickReply}
       onFormSend={::this.handleSendForm}
       onFileUploadSend={::this.handleFileUploadSend}
-      onLoginPromptSend={::this.handleLoginPrompt} />
+      onLoginPromptSend={::this.handleLoginPrompt}
+      onSendData={::this.handleSendData}
+    />
   }
 
   render() {
