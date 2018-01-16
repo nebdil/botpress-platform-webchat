@@ -278,10 +278,10 @@ class Message extends Component {
 
   render_custom() {
     const type = (this.props.data.message_raw.custom_type || '').substring(1)
-    const Plugin = (window.parent && window.parent.botpress[type] || {})['Plugin']
+    const Plugin = ((window.botpress || {})[type] || {})['Plugin']
     const data = this.props.data.message_raw.custom_data
     return (
-      <div style={this.getAddStyle()}>
+      <div>
         <p style={this.getAddStyle()}>{this.props.data.message_text}</p>
         { Plugin ? <Plugin onSendData={this.props.onSendData} { ...data } /> : this.render_unsupported() }
       </div>
