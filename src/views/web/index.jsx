@@ -8,6 +8,7 @@ import classnames from 'classnames'
 
 import addMilliseconds from 'date-fns/add_milliseconds'
 import isBefore from 'date-fns/is_before'
+import queryString from 'query-string'
 
 import Convo from './convo'
 import Side from './side'
@@ -23,12 +24,22 @@ const ANIM_DURATION = 300
 
 const MIN_TIME_BETWEEN_SOUNDS = 10000 // 10 seconds
 
+const defaultOptions = {
+  locale: 'en-US',
+  botName: 'Bot',
+  backgroundColor:'#fff',
+  textColorOnBackground: '#666',
+  foregroundColor: '#0176ff',
+  textColorOnForeground: '#fff'
+}
+
 export default class Web extends React.Component {
 
   constructor(props) {
     super(props)
 
-    const options = window.botpressChatOptions || {}
+    const { options } = queryString.parse(location.search)
+    const { hideWidget, config } = JSON.parse(decodeURIComponent(options))
 
     this.state = {
       view: null,
@@ -36,11 +47,12 @@ export default class Web extends React.Component {
       loading: true,
       played: false,
       opened: false,
+      config: Object.assign({}, defaultOptions, config),
       conversations: null,
       currentConversation: null,
       currentConversationId: null,
       unreadCount: 0,
-      isButtonHidden: options.hideWidget
+      isButtonHidden: hideWidget
     }
 
     this.handleIframeApi = this.handleIframeApi.bind(this)
@@ -77,11 +89,16 @@ export default class Web extends React.Component {
     window.removeEventListener('message', this.handleIframeApi);
   }
   
-  handleIframeApi({ data }) {
-    if (data === 'show') {
-      this.handleSwitchView('side')
-    } else if (data === 'hide') {
-      this.handleSwitchView('widget')
+  handleIframeApi({ data: { action, payload } }) {
+    if (action === 'configure') {
+      this.setState({ config: Object.assign({}, defaultOptions, payload) })
+    } else if (action === 'event') {
+      const { type, text } = payload
+      if (type === 'show') {
+        this.handleSwitchView('side')
+      } else if (type === 'hide') {
+        this.handleSwitchView('widget')
+      }
     }
   }
 
@@ -191,9 +208,7 @@ export default class Web extends React.Component {
   }
 
   fetchData() {
-    return this.fetchConfig()
-    .then(::this.fetchConversations)
-    .then(::this.fetchCurrentConversation)
+    return this.fetchConversations().then(::this.fetchCurrentConversation)
   }
 
   fetchConversations() {
@@ -230,15 +245,6 @@ export default class Web extends React.Component {
       }
 
       this.setState({ currentConversation: data })
-    })
-  }
-
-  fetchConfig() {
-    return this.props.bp.axios.get('/api/botpress-platform-webchat/config')
-    .then(({ data }) => {
-      this.setState({
-        config: data
-      })
     })
   }
 
