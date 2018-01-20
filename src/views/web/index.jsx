@@ -54,8 +54,6 @@ export default class Web extends React.Component {
       unreadCount: 0,
       isButtonHidden: hideWidget
     }
-
-    this.handleIframeApi = this.handleIframeApi.bind(this)
   }
 
   componentWillMount() {
@@ -89,7 +87,7 @@ export default class Web extends React.Component {
     window.removeEventListener('message', this.handleIframeApi)
   }
   
-  handleIframeApi({ data: { action, payload } }) {
+  handleIframeApi = ({ data: { action, payload } }) => {
     if (action === 'configure') {
       this.setState({ config: Object.assign({}, defaultOptions, payload) })
     } else if (action === 'event') {
@@ -98,6 +96,9 @@ export default class Web extends React.Component {
         this.handleSwitchView('side')
       } else if (type === 'hide') {
         this.handleSwitchView('widget')
+      } else if (type === 'message') {
+        this.setState({ textToSend: text })
+        this.handleSendMessage()
       }
     }
   }
