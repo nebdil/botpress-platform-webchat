@@ -62,21 +62,21 @@ export default class Web extends React.Component {
 
     window.addEventListener('message', this.handleIframeApi)
 
-    this.props.bp.axios.interceptors.request.use(function (config) {
+    this.props.bp.axios.interceptors.request.use((config) => {
       if (/\/api\/botpress-platform-webchat\//i.test(config.url)) {
         const prefix = config.url.indexOf('?') > 0 ? '&' : '?'
         config.url += prefix + '__ts=' + new Date().getTime()
       }
       return config
-    }, function (error) {
+    }, (error) => {
       return Promise.reject(error)
     })
   }
 
   componentWillUnmount() {
-    window.removeEventListener('message', this.handleIframeApi);
+    window.removeEventListener('message', this.handleIframeApi)
   }
-  
+
   handleIframeApi({ data }) {
     if (data === 'show') {
       this.handleSwitchView('side')
@@ -100,7 +100,7 @@ export default class Web extends React.Component {
         clearInterval(interval)
         reject()
       }, 300000)
-      
+
     })
   }
 
@@ -129,7 +129,7 @@ export default class Web extends React.Component {
           view: view
         })
       }, ANIM_DURATION + 10)
-      
+
     }
 
     if (view === 'convo') {
@@ -276,21 +276,21 @@ export default class Web extends React.Component {
   safeUpdateCurrentConvo(convoId, addToUnread, updater) {
     // there's no conversation to update or our convo changed
     if (!this.state.currentConversation || this.state.currentConversationId !== convoId) {
-      
+
       this.fetchConversations()
       .then(::this.fetchCurrentConversation)
-      
+
       return
     }
 
     // there's no focus on the actual conversation
     if ((document.hasFocus && !document.hasFocus()) || this.state.view !== 'side') {
       this.playSound()
-      
+
       if (addToUnread) {
         this.increaseUnreadCount()
       }
-    } 
+    }
 
     this.handleResetUnreadCount()
 
@@ -301,12 +301,12 @@ export default class Web extends React.Component {
     }
   }
 
-  playSound() { 
+  playSound() {
     if (!this.state.played && this.state.view !== 'convo') { // TODO: Remove this condition (view !== 'convo') and fix transition sounds
       const audio = new Audio('/api/botpress-platform-webchat/static/notification.mp3')
       audio.play()
 
-      this.setState({ 
+      this.setState({
         played: true
       })
 
@@ -441,7 +441,7 @@ export default class Web extends React.Component {
 
   renderWidget() {
     return <div className={classnames(style['container'])}>
-        <div className={classnames(style['widget-container'])}> 
+        <div className={classnames(style['widget-container'])}>
           <span>
             {this.state.view === 'convo'
               ? <Convo
@@ -449,7 +449,7 @@ export default class Web extends React.Component {
                 change={::this.handleTextChanged}
                 send={::this.handleSendMessage}
                 config={this.state.config}
-                text={this.state.textToSend} /> 
+                text={this.state.textToSend} />
               : null}
             {this.renderButton()}
           </span>
