@@ -256,9 +256,20 @@ module.exports = async (bp, config) => {
     }, payload.data))
   }
 
-  async function sendEvent(userId, event, data) {
-
-  }
+  router.post('/events/:userId', asyncApi(async (req, res) => {
+    const { type, payload } = (req.body || {})
+    const { userId } = req.params || {}
+    const user = await getOrCreateUser(userId)
+    bp.middlewares.sendIncoming({
+      platform: 'webchat',
+      type,
+      user,
+      text: payload.text,
+      raw: _.pick(payload, ['text', 'type', 'data']),
+      ...payload.data
+    })
+    res.status(200).send({})
+  }))
 
   return router
 }

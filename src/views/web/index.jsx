@@ -99,6 +99,10 @@ export default class Web extends React.Component {
       } else if (type === 'message') {
         this.setState({ textToSend: text })
         this.handleSendMessage()
+      } else {
+        const userId = window.__BP_VISITOR_ID
+        const url = `${BOT_HOSTNAME}/api/botpress-platform-webchat/events/${userId}`
+        return this.props.bp.axios.post(url, { type, payload })
       }
     }
   }
@@ -341,7 +345,6 @@ export default class Web extends React.Component {
 
   handleSendMessage() {
     const userId = window.__BP_VISITOR_ID
-    const url = `${BOT_HOSTNAME}/api/botpress-platform-webchat/messages/${userId}`
     const config = { params: { conversationId: this.state.currentConversationId } }
 
     return this.handleSendData({ type: 'text', text: this.state.textToSend })
