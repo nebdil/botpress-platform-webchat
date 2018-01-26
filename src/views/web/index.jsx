@@ -48,7 +48,7 @@ export default class Web extends React.Component {
       played: false,
       opened: false,
       config: Object.assign({}, defaultOptions, config),
-      conversations: null,
+      conversations: [],
       currentConversation: null,
       currentConversationId: null,
       unreadCount: 0,
@@ -221,12 +221,9 @@ export default class Web extends React.Component {
     const userId = this.userId
     const url = `${BOT_HOSTNAME}/api/botpress-platform-webchat/conversations/${userId}`
 
-    return axios.get(url)
-    .then(({ data }) => {
-      this.setState({
-        conversations: data
-      })
-    })
+    return axios
+      .get(url)
+      .then(({ data }) => new Promise(resolve => this.setState({ conversations: data }, resolve)))
   }
 
   fetchCurrentConversation(convoId) {
