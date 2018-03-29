@@ -471,7 +471,7 @@
 
   .info {
     padding: 6px 12px 12px 12px;
-    min-height: 150px;
+    min-height: 100px;
 
     .title {
       text-overflow: ellipsis;
@@ -485,6 +485,10 @@
     .subtitle {
       color: rgba(0, 0, 0, 0.4);
     }
+  }
+
+  .buttons {
+    height: 50px;
   }
 
   .action {
