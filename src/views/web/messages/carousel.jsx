@@ -53,7 +53,7 @@ export default class CarouselMessage extends Component {
       ],
       slidesToScroll: 1,
       autoplay: false,
-      centerMode: true,
+      centerMode: false,
       arrows: elements.length > 1
     }
 
