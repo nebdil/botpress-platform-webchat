@@ -454,7 +454,7 @@
   box-sizing: border-box;
   color: rgba(0, 0, 0, 1);
   line-height: 1.28em;
-  width: 200px !important;
+  width: 250px !important;
   margin-right: 10px;
   min-height: 100px;
   max-height: 200px;
@@ -496,6 +496,7 @@
     font-weight: 500;
     color: #a229e2;
     text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .action {
@@ -508,5 +509,6 @@
     line-height: 32px;
     text-align: center;
     color: #a229e2;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
