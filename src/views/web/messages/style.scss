@@ -472,7 +472,7 @@
 
   .info {
     padding: 6px 12px 12px 12px;
-    min-height: 50px;
+    height: 45px;
 
     .title {
       text-overflow: ellipsis;
@@ -484,14 +484,14 @@
       background-color: green;
     }
 
-    .subtitle {
-      color: rgba(0, 0, 0, 0.4);
-      background-color: blue;
-    }
+    // .subtitle {
+    //   color: rgba(0, 0, 0, 0.4);
+    //   background-color: blue;
+    // }
   }
 
   .buttons {
-    height: 25px;
+    height: 30px;
     background-color: yellow;
   }
 

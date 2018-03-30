@@ -23,7 +23,7 @@ export default class CarouselMessage extends Component {
         <div className={style.more}>
           <div className={style.info}>
             <div className={style.title}>{el.title}</div>
-            { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> }
+            {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
           </div>
           <div className={style.buttons}>
             { el.buttons.map(btn => {
