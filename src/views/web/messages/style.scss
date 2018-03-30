@@ -467,7 +467,6 @@
     background-size: cover;
     height: 125px;
     width: 100%;
-    background-color: red;
   }
 
   .info {
@@ -479,7 +478,8 @@
       white-space: normal;
       font-weight: bold;
       line-height: 1.28em;
-      max-height: 40px;
+      max-height: 100%;
+      text-align: center;
       overflow: hidden;
       font-size: 14px;
     }
@@ -493,14 +493,15 @@
   .buttons {
     height: 30px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     color: #a229e2;
     text-decoration: none;
     background-color: #fafafa;
+    text-align: center;
   }
 
   .action {
-    font-weight: 700;
+    font-weight: 500;
     padding: 0 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: block;
@@ -510,5 +511,6 @@
     text-align: center;
     color: #a229e2;
     background-color: #fafafa;
+    text-align: center;
   }
 }
