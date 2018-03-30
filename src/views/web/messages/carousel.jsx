@@ -42,18 +42,18 @@ export default class CarouselMessage extends Component {
 
     const settings = {
       dots: false,
-      infinite: true,
+      infinite: false,
       // slidesToShow: 3,
-      // responsible: [
-      //   { breakpoint: 550, settings: { slidesToShow: 1 } },
-      //   { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      //   { breakpoint: 1548, settings: { slidesToShow: 3 } },
-      //   { breakpoint: 2072, settings: { slidesToShow: 4 } },
-      //   { breakpoint: 10000, settings: 'unslick' }
-      // ],
+      responsible: [
+        { breakpoint: 550, settings: { slidesToShow: 1 } },
+        { breakpoint: 1024, settings: { slidesToShow: 2 } },
+        { breakpoint: 1548, settings: { slidesToShow: 3 } },
+        { breakpoint: 2072, settings: { slidesToShow: 4 } },
+        { breakpoint: 10000, settings: 'unslick' }
+      ],
       slidesToScroll: 1,
       autoplay: false,
-      centerMode: false,
+      centerMode: true,
       arrows: elements.length > 1
     }
 
