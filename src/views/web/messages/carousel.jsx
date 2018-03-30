@@ -42,7 +42,7 @@ export default class CarouselMessage extends Component {
 
     const settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       // slidesToShow: 3,
       responsible: [
         { breakpoint: 550, settings: { slidesToShow: 1 } },
