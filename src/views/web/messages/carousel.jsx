@@ -30,7 +30,7 @@ export default class CarouselMessage extends Component {
               if (btn.url) {
                 return <a href={btn.url} target="_blank" className={style.action}>{btn.title}</a>
               } else {
-                return <a href="#" className={style.action}>{' ' + btn.title || btn}</a>
+                return <a href="#" className={style.action}> </a>
               }
             }) }
           </div>
