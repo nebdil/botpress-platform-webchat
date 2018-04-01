@@ -18,35 +18,24 @@ export default class CarouselMessage extends Component {
 
     const CarouselElement = el => {
 
-      // if (el.buttons) {
-        return <div className={style['carousel-item']}>
-          {el.picture && <div className={style.picture} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
-          <div className={style.more}>
-            <div className={style.info}>
-              <div className={style.title}>{el.title}</div>
-              {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
-            </div>
-            <div className={style.buttons}>
-              { el.buttons.map(btn => {
-                if (btn.url) {
-                  return <a href={btn.url} target="_blank" className={style.action}>{btn.title}</a>
-                }
-              }) }
-            </div>
+      return <div className={style['carousel-item']}>
+        {el.picture && <div className={style.picture} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
+        <div className={style.more}>
+          <div className={style.info}>
+            <div className={style.title}>{el.title}</div>
+            {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
+          </div>
+          <div className={style.buttons}>
+            { el.buttons.map(btn => {
+              if (btn.url) {
+                return <a href={btn.url} target="_blank" className={style.action}>{btn.title}</a>
+              } else {
+                return <a href="#" className={style.action}>{' ' + btn.title || btn}</a>
+              }
+            }) }
           </div>
         </div>
-      // }
-      //  else {
-      //   return <div className={style['carousel-item']}>
-      //     {el.picture && <div className={style['picture-no-button']} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
-      //     <div className={style.more}>
-      //       <div className={style['info-no-button']}>
-      //         <div className={style['title-no-button']}>{el.title}</div>
-      //         {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
-      //       </div>
-      //     </div>
-      //   </div>
-      // }
+      </div>
     }
 
     const elements = this.props.carousel.elements || []
