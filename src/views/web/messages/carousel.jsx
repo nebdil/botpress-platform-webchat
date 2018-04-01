@@ -29,8 +29,6 @@ export default class CarouselMessage extends Component {
             { el.buttons.map(btn => {
               if (btn.url) {
                 return <a href={btn.url} target="_blank" className={style.action}>{btn.title}</a>
-              } else {
-                return <a href="#" className={style.action}> </a>
               }
             }) }
           </div>
