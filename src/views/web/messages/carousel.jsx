@@ -42,7 +42,7 @@ export default class CarouselMessage extends Component {
           {el.picture && <div className={style['picture-no-button']} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
           <div className={style.more}>
             <div className={style['info-no-button']}>
-              <div className={style.title}>{el.title}</div>
+              <div className={style['title-no-button']}>{el.title}</div>
               {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
             </div>
           </div>
