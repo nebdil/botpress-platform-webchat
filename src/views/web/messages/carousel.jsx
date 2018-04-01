@@ -20,7 +20,7 @@ export default class CarouselMessage extends Component {
       let picture_css;
       let info_css;
 
-      if (buttons) {
+      if (el.buttons) {
         picture_css = 'picture'
         info_css = 'info'
       } else {
@@ -35,7 +35,7 @@ export default class CarouselMessage extends Component {
             <div className={style.title}>{el.title}</div>
             {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
           </div>
-          {if (buttons) {
+          {if (el.buttons) {
             return  <div className={style.buttons}>
                       { el.buttons.map(btn => {
                         if (btn.url) {
