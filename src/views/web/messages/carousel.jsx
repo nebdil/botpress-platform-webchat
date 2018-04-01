@@ -19,6 +19,8 @@ export default class CarouselMessage extends Component {
     const CarouselElement = el => {
 
       if (el.buttons) {
+        alert('in if')
+        console.log('in if')
         return <div className={style['carousel-item']}>
           {el.picture && <div className={style.picture} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
           <div className={style.more}>
@@ -38,6 +40,8 @@ export default class CarouselMessage extends Component {
           </div>
         </div>
       } else {
+        alert('in else')
+        console.log('in else')
         return <div className={style['carousel-item']}>
           {el.picture && <div className={style['picture-no-button']} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
           <div className={style.more}>
