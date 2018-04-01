@@ -18,7 +18,7 @@ export default class CarouselMessage extends Component {
 
     const CarouselElement = el => {
 
-      if (el.buttons) {
+      // if (el.buttons) {
         return <div className={style['carousel-item']}>
           {el.picture && <div className={style.picture} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
           <div className={style.more}>
@@ -30,24 +30,23 @@ export default class CarouselMessage extends Component {
               { el.buttons.map(btn => {
                 if (btn.url) {
                   return <a href={btn.url} target="_blank" className={style.action}>{btn.title}</a>
-                } else {
-                  return <a href="#" className={style.action}>{'[TODO] ' + btn.title || btn}</a>
                 }
               }) }
             </div>
           </div>
         </div>
-      } else if (!el.buttons) {
-        return <div className={style['carousel-item']}>
-          {el.picture && <div className={style['picture-no-button']} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
-          <div className={style.more}>
-            <div className={style['info-no-button']}>
-              <div className={style['title-no-button']}>{el.title}</div>
-              {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
-            </div>
-          </div>
-        </div>
-      }
+      // }
+      //  else {
+      //   return <div className={style['carousel-item']}>
+      //     {el.picture && <div className={style['picture-no-button']} style={{ backgroundImage: `url("${el.picture}")`}}></div>}
+      //     <div className={style.more}>
+      //       <div className={style['info-no-button']}>
+      //         <div className={style['title-no-button']}>{el.title}</div>
+      //         {/* { el.subtitle && <div className={style.subtitle}>{el.subtitle}</div> } */}
+      //       </div>
+      //     </div>
+      //   </div>
+      // }
     }
 
     const elements = this.props.carousel.elements || []
