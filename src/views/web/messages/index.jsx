@@ -46,7 +46,7 @@ class MessageGroup extends Component {
       <div className={className}>
         {isBot && this.renderAvatar()}
         <div className={style['message-container']}>
-          {isBot && <div className={style['info-line']}>{sample.full_name}</div>}
+          {isBot && <div className={style['info-line']}>Liv</div>}
           <div className={style.group}>
             {this.props.messages.map((data, i) => {
               return (
