@@ -29,13 +29,13 @@ const MIN_TIME_BETWEEN_SOUNDS = 10000 // 10 seconds
 
 const defaultOptions = {
   locale: 'en-US',
-  botName: 'Bot',
+  botName: 'Liv',
   backgroundColor: '#ffffff',
   textColorOnBackground: '#666666',
-  foregroundColor: '#000000',
+  foregroundColor: '#a229e2',
   textColorOnForeground: '#ffffff',
   enableReset: false,
-  botConvoTitle: 'Botpress Webchat'
+  botConvoTitle: 'emojiEpilepsy'
 }
 
 export default class Web extends React.Component {

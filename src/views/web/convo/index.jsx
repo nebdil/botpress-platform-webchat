@@ -8,7 +8,7 @@ import BotAvatar from '../bot_avatar'
 
 import style from './style.scss'
 
-const DEFAULT_NAME = 'Bot'
+const DEFAULT_NAME = 'Liv'
 const DEFAULT_WELCOME_MESSAGE = `Hello!
   Curious about our offer?
   It will be a pleasure to help you getting started.
@@ -85,7 +85,7 @@ export default class Convo extends React.Component {
           <div className={style.circle}
             style={{
               borderColor: this.props.config.foregroundColor,
-              color: this.props.config.foregroundColor 
+              color: this.props.config.foregroundColor
             }}>
             {content}
           </div>
@@ -95,7 +95,7 @@ export default class Convo extends React.Component {
 
   renderWelcomeMessage() {
     const message = this.props.config.welcomeMsgText || DEFAULT_WELCOME_MESSAGE
-    
+
     return <div className={style.paragraph}>
         {message}
       </div>
@@ -103,7 +103,7 @@ export default class Convo extends React.Component {
 
   renderHeader() {
     return <div className={style.header}
-        style={{ 
+        style={{
           color: this.props.config.textColorOnForeground,
           backgroundColor: this.props.config.foregroundColor
         }}>
@@ -124,7 +124,7 @@ export default class Convo extends React.Component {
         <div className={style['flex-column']}>
           <Input
             send={this.props.send}
-            change={this.props.change} 
+            change={this.props.change}
             placeholder='Type your message...'
             text={this.props.text}
             config={this.props.config} />
@@ -149,6 +149,6 @@ export default class Convo extends React.Component {
           {this.renderHeader()}
           {this.renderComposer()}
         </div>
-      </div> 
+      </div>
   }
 }
