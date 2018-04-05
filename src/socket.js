@@ -11,7 +11,7 @@ module.exports = async (bp, config) => {
   const { appendBotMessage, getOrCreateRecentConversation } = db(knex, bp.botfile)
   const { getOrCreateUser } = await users(bp, config)
 
-  const { botName = 'Bot', botAvatarUrl = null } = config || {}
+  const { botName = 'Liv', botAvatarUrl = null } = config || {}
 
   bp.middlewares.register({
     name: 'webchat.sendMessages',

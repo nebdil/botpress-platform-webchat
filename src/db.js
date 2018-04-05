@@ -100,7 +100,7 @@ module.exports = knex => {
       id: uuid.v4(),
       conversationId: conversationId,
       userId: null,
-      full_name: botName,
+      full_name: 'Liv',
       avatar_url: botAvatar,
       message_type: type,
       message_text: text,

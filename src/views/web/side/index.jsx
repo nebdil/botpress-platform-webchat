@@ -208,7 +208,7 @@ export default class Side extends React.Component {
   }
 
   renderComposer() {
-    const name = this.props.config.botName || 'Bot'
+    const name = this.props.config.botName || 'Liv'
 
     return (
       <div
