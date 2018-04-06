@@ -458,7 +458,7 @@ export default class Web extends React.Component {
       <button
         className={style[this.state.widgetTransition]}
         onClick={::this.handleButtonClicked}
-        style={{ backgroundColor: this.state.config.foregroundColor }}
+        style={{ backgroundColor: '#a229e2' }}
       >
         <i>{this.state.view === 'convo' ? this.renderCloseIcon() : this.renderOpenIcon()}</i>
         {this.state.unreadCount > 0 ? this.renderUncountMessages() : null}
