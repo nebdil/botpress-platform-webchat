@@ -32,7 +32,7 @@ const defaultOptions = {
   botName: 'Liv',
   backgroundColor: '#ffffff',
   textColorOnBackground: '#666666',
-  foregroundColor: '#000000',
+  foregroundColor: '#a229e2',
   textColorOnForeground: '#ffffff',
   enableReset: false,
   botConvoTitle: 'emojiEpilepsy'
