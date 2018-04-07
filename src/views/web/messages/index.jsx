@@ -204,6 +204,11 @@ export default class MessageList extends Component {
 }
 
 class Message extends Component {
+  if (this.props.data.message_text === 'dilan') {
+    const iframeWindow = document.getElementById('dilan').contentWindow
+    iframeWindow.postMessage('hey from dilan', '*')
+  }
+
   getAddStyle() {
     return this.props.data.message_raw && this.props.data.message_raw['web-style']
   }
@@ -212,7 +217,7 @@ class Message extends Component {
     return (
       <Linkify properties={{ target: '_blank' }}>
         <div>
-          <p style={this.getAddStyle()}>{this.props.data.message_text}</p>
+          <p id='dilan' style={this.getAddStyle()}>{this.props.data.message_text}</p>
         </div>
       </Linkify>
     )
