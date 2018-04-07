@@ -209,10 +209,15 @@ class Message extends Component {
   }
 
   render_text() {
+    if (this.props.data.message_text === 'dilan') {
+      const iframeWindow = document.getElementById('dilan').contentWindow
+      iframeWindow.postMessage('hey from dilan', '*')
+    }
+
     return (
       <Linkify properties={{ target: '_blank' }}>
         <div>
-          <p style={this.getAddStyle()}>{this.props.data.message_text}</p>
+          <p id='dilan' style={this.getAddStyle()}>{this.props.data.message_text}</p>
         </div>
       </Linkify>
     )
