@@ -209,7 +209,9 @@ class Message extends Component {
   }
 
   render_text() {
+    console.log(this.props.data.message_text)
     if (this.props.data.message_text === 'dilan') {
+      console.log('in dilan')
       const iframeWindow = document.getElementById('dilan').contentWindow
       iframeWindow.postMessage('hey from dilan', '*')
     }
